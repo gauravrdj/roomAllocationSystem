@@ -11,7 +11,7 @@ const [filter, setFilter]=useState("");
 const navigate = useNavigate();
 
 useEffect(()=>{
-   axios.get(`http://localhost:3000/api/bulk?filter=${filter}`).then((res)=>{
+   axios.get(`https://roomallocationsystem.onrender.com/api/bulk?filter=${filter}`).then((res)=>{
       setStudent(res.data.data);
    })
 },[filter])

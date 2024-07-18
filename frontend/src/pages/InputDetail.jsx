@@ -25,7 +25,7 @@ const FormComponent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:3000/api/addDetail', {
+      const res = await axios.post('https://roomallocationsystem.onrender.com/api/addDetail', {
         name: formData.name,
         contact: formData.contact,
         currentHostel: formData.currentHostel,
