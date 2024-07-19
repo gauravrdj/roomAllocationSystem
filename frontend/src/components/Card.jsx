@@ -8,7 +8,7 @@ const StudentCard = ({ student }) => {
    
 
   return (
-    <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden my-4 transform hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-xl hover:bg-blue-50">
+    <div className="w-full mx-auto bg-white shadow-lg rounded-lg overflow-hidden my-4 transform hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-xl hover:bg-blue-50">
       <div className={`p-4 bg-purple-500`}>
         <h1 className="text-2xl font-bold text-white animate-wiggle">{student.name}</h1>
         <p className="">Roll Number: {student.rollNumber}</p>
