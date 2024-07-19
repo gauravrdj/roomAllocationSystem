@@ -8,14 +8,18 @@ import Footer from '../components/Foot';
 export default function Home() {
   const [student, setStudent] = useState([]);
   const [filter, setFilter] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
+    setLoading(true);
     axios.get(`https://roomallocationsystem.onrender.com/api/bulk?filter=${filter}`).then((res) => {
       setStudent(res.data.data);
     });
+    setLoading(false);
   }, [filter]);
 
+  
   return (
     <>
       <AppBar />
@@ -52,7 +56,7 @@ export default function Home() {
             <path d="M12 16V8" strokeWidth="1.5"></path>
           </svg>
         </button>
-        <div className="flex flex-wrap w-full justify-center">
+        {!loading ? <div className="flex flex-wrap w-full justify-center">
           {student.map((ele) => (
             <div
               key={ele.rollNumber}
@@ -63,7 +67,7 @@ export default function Home() {
               {/* </div> */}
             </div>
           ))}
-        </div>
+        </div> : <div className='justify-center'>Loading...</div>}
       </div>
       <Footer />
     </>
