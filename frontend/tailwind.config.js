@@ -16,6 +16,10 @@ export default {
         wiggle: 'wiggle 1s ease-in-out infinite',
       },
     },
+    fontFamily: {
+      poppins: ['Poppins', 'sans-serif'],
+      roboto: ['Roboto', 'sans-serif'],
+    },
   },
   plugins: [],
 }

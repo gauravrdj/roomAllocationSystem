@@ -15,8 +15,9 @@ export default function Home() {
     setLoading(true);
     axios.get(`https://roomallocationsystem.onrender.com/api/bulk?filter=${filter}`).then((res) => {
       setStudent(res.data.data);
+      setLoading(false)
     });
-    setLoading(false);
+    // setLoading(false);
   }, [filter]);
 
   
@@ -56,7 +57,14 @@ export default function Home() {
             <path d="M12 16V8" strokeWidth="1.5"></path>
           </svg>
         </button>
-        {!loading ? <div className="flex flex-wrap w-full justify-center">
+        {loading ? <div className="flex justify-center items-center h-screen">
+  <div className="flex items-center space-x-2">
+    <div className="w-4 h-4 bg-purple-500 rounded-full animate-bounce"></div>
+    <div className="w-4 h-4 bg-purple-500 rounded-full animate-bounce animation-delay-200"></div>
+    <div className="w-4 h-4 bg-purple-500 rounded-full animate-bounce animation-delay-400"></div>
+    <span className="text-lg font-semibold text-purple-600">Loading...</span>
+  </div>
+</div>: <div className="flex flex-wrap w-full justify-center">
           {student.map((ele) => (
             <div
               key={ele.rollNumber}
@@ -67,7 +75,7 @@ export default function Home() {
               {/* </div> */}
             </div>
           ))}
-        </div> : <div className='justify-center'>Loading...</div>}
+        </div> }
       </div>
       <Footer />
     </>
